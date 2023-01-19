@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: stg_postgres__orders
+    description: staging model for all orders
+    columns:
+      - name: order_guid
+        description: unique identifier for an order
+        tests:
+          - not_null
+          - unique
+      - name: user_guid
+        description: user identifer related to who placed the order
+        tests:
+          - not_null
+      - name: promo_type
+        description: custom promo description
+      - name: address_guid
+        description: order's delivery address
+        tests:
+          - not_null
+      - name: order_cost
+        description: base cost of the order without shipping
+        tests:
+          - not_null
+      - name: shipping_cost
+        description: shipping cost of the order
+        tests:
+          - not_null
+      - name: order_total_cost
+        description: total order cost (base + shipping)
+        tests:
+          - not_null
+      - name: status
+        description: status of an order (shipped, delivered, preparing)
+        tests:
+          - accepted_values:
+              values: ['shipped', 'delivered', 'preparing']
+      - name: tracking_guid
+        description: unique identifier of the order
+
+      - name: shipping_service
+        description: name of the shipping service used
+        tests:
+          - accepted_values:
+              values: ['ups', 'usps', 'fedex', 'dhl']
+      - name: created_at_utc
+        description: timestamp (utc) when the order was created
+        tests:
+          - not_null
+      - name: estimated_delivery_at_utc
+        description: estimated delivery timestamp (utc)
+      - name: delivered_at_utc
+        description: timestamp at which the order was delivered to a customer (utc)

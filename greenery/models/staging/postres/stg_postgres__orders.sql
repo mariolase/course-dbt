@@ -12,7 +12,7 @@ ORDER_ID as order_guid
 , CREATED_AT::timestampntz as created_at_utc
 , ORDER_COST
 , SHIPPING_COST
-, ORDER_TOTAL
+, ORDER_TOTAL as order_total_cost
 , TRACKING_ID as tracking_guid
 , SHIPPING_SERVICE
 , ESTIMATED_DELIVERY_AT::timestampntz as estimated_delivery_at_utc

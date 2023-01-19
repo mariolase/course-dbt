@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_postgres__addresses
+    description: staging model for all orders
+    columns:
+      - name: address_guid
+        description: unique identifier for an address
+        tests:
+          - not_null
+          - unique
+      - name: address
+        description: street and number details for an address
+
+      - name: zipcode
+        description: zipcode for an address
+
+      - name: state
+        description: state for an address
+
+      - name: country
+        description: country for an address
