@@ -18,7 +18,7 @@ with users as (
 select
     users.first_name
     , users.last_name
-    , users.email,
+    , users.email
     , users.created_at_utc::DATE AS created_date_utc
     , addresses.address
     , addresses.country

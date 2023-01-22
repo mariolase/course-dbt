@@ -11,8 +11,8 @@ select
       product_guid
     , product_name
     , product_inventory
-    , price as product_price
+    , product_price
     , sum(quantity) as product_sales_volume
     , sum(order_cost) as product_sales_revenue
-    from orders_tems
+    from orders_items
     group by 1,2,3,4

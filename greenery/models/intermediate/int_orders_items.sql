@@ -8,11 +8,11 @@ with orders as (
     select * from {{ ref('stg_postgres__orders')}}
 )
 
-with order_items as (
-    select * from {{ ref('stg_postgres__orders_items')}}
+, order_items as (
+    select * from {{ ref('stg_postgres__order_items')}}
 )
 
-with products as (
+, products as (
     select * from {{ ref('stg_postgres__products')}}
 )
 
@@ -35,7 +35,7 @@ orders.order_guid
 , products.name as product_name
 , products.price as product_price
 , products.inventory as product_inventory
-from orders o
-left join order_items on order.order_guid = order_items.order_guid
+from orders
+left join order_items on orders.order_guid = order_items.order_guid
 left join products on order_items.product_guid = products.product_guid
 

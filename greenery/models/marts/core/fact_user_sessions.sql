@@ -13,8 +13,8 @@ select * from {{ ref ('stg_postgres__users') }}
 )
 
 select
-    session_events_agg.event_session_guid
-    , session events_agg.event_user_guid
+    session_events_agg.session_guid
+    , session_events_agg.user_guid
     , users.first_name
     , users.last_name
     , users.email
@@ -28,4 +28,4 @@ select
 
 from session_events_agg
 left join users
-    on session_events_agg.event_user_guid = users.user_guid
+    on session_events_agg.user_guid = users.user_guid
