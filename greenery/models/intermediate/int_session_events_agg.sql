@@ -15,5 +15,4 @@ select
     , min(created_at_utc) as first_session_event_at_utc
     , max(created_at_utc) as last_session_event_at_utc
 from events
-group by 1,2
-
+{{ dbt_utils.group_by(2) }} 
