@@ -1,0 +1,2 @@
+If you are thinking about moving to analytics engineering, what skills have you picked that give you the most confidence in pursuing this next step?
+I liked learning about how to use snapshots, packages, hooks, and exposures.
