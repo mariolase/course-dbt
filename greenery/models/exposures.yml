@@ -1,0 +1,13 @@
+version: 2
+
+exposures:  
+  - name: Product Funnel Dashboard
+    description: >
+      Reporting models for our product funnel dashboard
+    type: dashboard
+    maturity: low
+    owner:
+      name: Mariola Sebastian
+      email: mariola@greenery.com
+    depends_on:
+      - ref('reporting_funnel_metrics')
